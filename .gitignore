@@ -1,4 +1,4 @@
 .env
 .idea
-pokelist/*
+backend/pokelist/*
 database/*
