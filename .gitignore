@@ -1,4 +1,5 @@
 .env
 .idea
-backend/pokelist/*
+backend/pokeapi/*
+backend/pokedex_api/*
 database/*
