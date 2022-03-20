@@ -1,19 +1,33 @@
 # Pokémon Showcase
 
 <div align="center">
-<p>
-    <img src="Pokedex.png" width="130" alt="Pokedex" />
-</p>
+    <img src="graphics/logo.png" width="130" alt="Pokedex" />
 </div>
 
+The purpose of this project was to increase my knowledge in
+various technologies, mainly Python.
+
+---
+
+### Layout to achieve
+> ![Pokémon Challenge](graphics/layout.gif)
+> [Pokemon - Pokedex Website Redesign Concept by AC1 design](https://www.behance.net/gallery/113562309/Pokemon-Pokedex-Website-Redesign-Concept)
+
+### Layout achieved
 Lorem Ipsum
 
 ---
-### Layout to achieve
-> ![Pokémon Challenge](./layout.gif)
-> [Source](https://www.behance.net/gallery/113562309/Pokemon-Pokedex-Website-Redesign-Concept)
+
+### Usage
+Lorem Ipsum
 
 ---
 ### Software used
-- **Database:** DBeaver
-- **Virtualization:** Docker
+- **Management**
+  - Virtualization: Docker
+- **Frontend**
+  - Languages: HTML, Javascript
+  - Framework: Flask
+- **Backend**
+  - Language: SQL
+  - Software: DBeaver
