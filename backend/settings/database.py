@@ -2,11 +2,12 @@ import os
 from mysql import connector
 from mysql.connector import errorcode
 
-# Connect to the MySQL database by using .env file as a source
+# Connect to the MySQL database by using .yml and .env files
 
 try:
     DB = connector.connect(host=os.environ.get("MYSQL_HOST"),
                            user=os.environ.get("MYSQL_USER"),
+                           port=3306,
                            passwd=os.environ.get("MYSQL_PASSWORD"),
                            database=os.environ.get("MYSQL_DATABASE"))
 

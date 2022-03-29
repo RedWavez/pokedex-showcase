@@ -1,20 +1,559 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-	<title>Pokémon Challenge</title>
-	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<meta name="keywords" content="__keywords_here__" />
-	<meta name="description" content="__description_here__" />
-	<meta name="robots" content="index" />
-	<meta name="author" content="__developer_name__" />
+    <title>Pokémon Challenge</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="keywords" content="HTML, TailwindCSS, Pokémon, Pokédex"/>
+    <meta name="description" content="Pokédex"/>
+    <meta name="robots" content="index"/>
+    <meta name="author" content="afaa97"/>
+    <link href="./style.css" rel="stylesheet"/>
+    <script src="./js/script.js" type="text/javascript" defer></script>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body>
-	<h1>
-		Hello Trainer, André
-	</h1>
+<body class="bg-background_color font-['Poppins'] text-secondary">
+<div class="absolute -left-44 -top-28">
+    <!-- ======================= BG IMAGE ======================= -->
+    <img src="./assets/icons/background/poke_icon.svg" alt="Background Image"/>
+</div>
+<div class="container mx-auto py-7 px-14 z-10 relative">
+    <!-- ======================= NAVIGATION =======================
+    Used flexbox because menu is a one dimensional layout
+    SVG icons were placed inline because otherwise color change on hover
+    would be impossible unless I had 2 different images.
+    ============================================================-->
+    <header class="rounded-xl pt-8 px-10 shadow-lg bg-white">
+        <nav role="navigation" class="flex justify-between font-semibold">
+            <div class="flex items-center space-x-2 cursor-pointer pb-8 fill-header_icon_color hover:transition duration-200 hover:-translate-y-0.5 hover:fill-red_selection hover:text-red_selection">
+                <svg width="43" height="38">
+                    <path d="M33.48 5.48a21.21 21.21 0 0 0-5 9.19 19.7 19.7 0 0 0-7.2-1.42c-2.47.02-4.91.5-7.2 1.42-.9-3.44-2.64-6.6-5.08-9.19A21.35 21.35 0 0 0 .75 0 .56.56 0 0 0 0 .64a25.45 25.45 0 0 0 10.3 17.13 12.93 12.93 0 0 0-2.95 8.43 9.67 9.67 0 0 0 6.49 9.5c2.36.93 4.87 1.4 7.41 1.39 2.54.02 5.05-.46 7.41-1.39a9.67 9.67 0 0 0 6.49-9.5 12.92 12.92 0 0 0-2.96-8.46A25.63 25.63 0 0 0 39.25 10 25.64 25.64 0 0 0 42.49.64a.57.57 0 0 0-.75-.64 21.26 21.26 0 0 0-8.26 5.48Z" />
+                </svg>
+                <div>Home</div>
+            </div>
+            <div class="flex items-center space-x-2 cursor-pointer text-red_selection pb-8 border-b-4 border-red_selection fill-red_selection">
+                <svg width="44" height="44">
+                    <path d="M21.73 28.22a6.34 6.34 0 1 0 0-12.68 6.34 6.34 0 0 0 0 12.68Z"/>
+                    <path d="M9.72 19.09a12.32 12.32 0 0 1 24 0h9.69a21.87 21.87 0 0 0-43.41 0h9.72ZM33.8 24.43a12.34 12.34 0 0 1-24.14 0H0a21.87 21.87 0 0 0 43.45 0H33.8Z"/>
+                </svg>
+                <div>Pokédex</div>
+            </div>
+            <div class="flex items-center space-x-2 cursor-pointer pb-8 fill-header_icon_color hover:transition duration-200 hover:-translate-y-0.5 hover:fill-red_selection hover:text-red_selection">
+                <svg width="42" height="42">
+                    <path d="M39.64 14.74H26.32V1.42A1.41 1.41 0 0 0 24.9 0h-8.75a1.41 1.41 0 0 0-1.41 1.42v13.32H1.42A1.41 1.41 0 0 0 0 16.15v8.75a1.41 1.41 0 0 0 1.42 1.42h13.32v13.32a1.42 1.42 0 0 0 1.41 1.42h8.75a1.42 1.42 0 0 0 1.42-1.42V26.32h13.32a1.42 1.42 0 0 0 1.42-1.42v-8.75a1.42 1.42 0 0 0-1.42-1.41ZM20.43 2.49l3.62 3.88h-7.24l3.62-3.88ZM6.37 24.25l-3.88-3.62L6.37 17v7.25Zm14.26 14.32L17 34.69h7.24l-3.61 3.88Zm14.06-14.52v-7.24l3.88 3.62-3.88 3.62Z" />
+                </svg>
+                <div>Videogames</div>
+            </div>
+            <div class="flex items-center space-x-2 cursor-pointer pb-8 fill-header_icon_color hover:transition duration-200 hover:-translate-y-0.5 hover:fill-red_selection hover:text-red_selection">
+                <svg width="44" height="35">
+                    <path d="M42.18 5.65 23.24.06a1.42 1.42 0 0 0-1.76 1l-7.7 26.06v.26l-.39-.05-.77-.24a2.58 2.58 0 0 1-1.68-3.23L18 1.33 1.21 3.79A1.43 1.43 0 0 0 0 5.4l4 26.89a1.42 1.42 0 0 0 1.6 1.2l16.65-2.44 11.46 3.38a1.4 1.4 0 0 0 1.76-1l7.7-26.06a1.44 1.44 0 0 0-.99-1.72Zm-15.65 18.1a6.78 6.78 0 0 1-4.75-7.66l2.87.85a3.82 3.82 0 0 0 7.17 2.12l2.87.85a6.78 6.78 0 0 1-8.16 3.84Zm0-7.06a2 2 0 1 1 1.33 2.44 2 2 0 0 1-1.29-2.44h-.04Zm8.58 1.63-2.88-.85a3.82 3.82 0 0 0-7.14-2.11l-2.88-.85a6.78 6.78 0 0 1 12.9 3.81Z" />
+                </svg>
+                <div>GCC Pokémon</div>
+            </div>
+            <div class="flex items-center space-x-2 cursor-pointer pb-8 fill-header_icon_color hover:transition duration-200 hover:-translate-y-0.5 hover:fill-red_selection hover:text-red_selection">
+                <svg width="40" height="37">
+                    <path d="m32.36 19 5.39-4.54c.85 2 2.87 7.61.73 13.16-.48 1.35-1.2 2.6-2.16 3.67a13.57 13.57 0 0 1-8.42 4C23 36 18 36.52 13 35.4a28.72 28.72 0 0 1-5.44-1.55A16 16 0 0 1 2 29.29C-.74 25.42-.59 19.64 2 14.4l5.47 5.11c-.24 1.17-.46 2.14-.65 3.11a9 9 0 0 0 .38 5.16 9.3 9.3 0 0 0 3.48 4.07C16 35.66 23.93 34.92 29 32a8.38 8.38 0 0 0 3.42-3.19c1.22-2.26.94-4.83.69-6.62-.19-1-.47-1.95-.75-3.19Z" />
+                    <path d="M30 10.1a14.65 14.65 0 0 0-4.16 6.59 18.37 18.37 0 0 0-11.9 0c-.76-2.53-2.2-4.8-4.14-6.59a17.92 17.92 0 0 0-6.68-3.85.56.56 0 0 0-.72.65c.41 2.3 1.3 4.48 2.6 6.42a19.73 19.73 0 0 0 5.83 5.56 8.94 8.94 0 0 0-2.09 3.62c-.23.8-.33 1.62-.32 2.44.06 3.38 2 5.67 5.36 6.8 1.97.68 4.04 1.01 6.13 1 2.08.01 4.16-.32 6.13-1 3.35-1.13 5.3-3.42 5.36-6.8a8 8 0 0 0-.32-2.44A8.94 8.94 0 0 0 29 18.88a19.73 19.73 0 0 0 5.83-5.56 16.86 16.86 0 0 0 2.6-6.42.57.57 0 0 0-.73-.65A18 18 0 0 0 30 10.1Z" />
+                    <path d="M30.38 0a1.06 1.06 0 0 0-1 1.12c0 .16.04.3.11.45l-.07.08c-.4.5-.84.98-1.31 1.42-.89.86-1.87 2-3.29 3.35-.52.52-1.1.99-1.72 1.39-.35.29-.79.45-1.24.47-.43 0-.48-.25-1.07-.4-.49-.1-1-.1-1.48 0-.75.15-.82.41-1.35.41a2.17 2.17 0 0 1-1.24-.47c-.62-.4-1.2-.88-1.72-1.4-1.42-1.36-2.4-2.49-3.29-3.35-.47-.44-.9-.92-1.31-1.42l-.07-.08a1 1 0 0 0 .11-.45 1.04 1.04 0 1 0-2.01.29 1.06 1.06 0 0 0 .94.71c.22.04.44 0 .63-.12l.12.09c.45.36.86.77 1.23 1.21 2.14 2.52 3.17 3.15 4.43 5.39a16.49 16.49 0 0 1 .7 1.45.29.29 0 0 1-.19.28c-1.19.4-1.72.54-2.9.94a.28.28 0 0 0-.16.41l1.37 2.58a.27.27 0 0 0 .34.14c1.6-.57 3.3-.8 5-.69a12.5 12.5 0 0 1 4.82.86.27.27 0 0 0 .35-.13l1.47-2.75a.28.28 0 0 0-.16-.41c-1.18-.41-1.73-.55-2.92-.95a.29.29 0 0 1-.16-.39c.25-.56.49-1 .67-1.34 1.26-2.24 2.29-2.87 4.43-5.39.38-.45.8-.87 1.26-1.25l.15-.05a.93.93 0 0 0 1.01.1 1.06 1.06 0 0 0 .6-1.02A1.05 1.05 0 0 0 30.38 0Z" />
+                </svg>
+                <div>TV Pokémon</div>
+            </div>
+            <div class="flex items-center space-x-2 cursor-pointer pb-8 fill-header_icon_color hover:transition duration-200 hover:-translate-y-0.5 hover:fill-red_selection hover:text-red_selection">
+                <svg width="39" height="33">
+                    <path d="M31.55 3.75c-1.74-.83-7-1.21-12.31-1.18-5.31.03-10.58.35-12.32 1.18L0 0a110.85 110.85 0 0 0 6.91 13.59 26.63 26.63 0 0 0 11.38 5.68v5.39H10.6l-1.08 7.39H29l-1.09-7.39h-7.72v-5.39a26.54 26.54 0 0 0 11.37-5.68A110.85 110.85 0 0 0 38.47 0l-6.92 3.75ZM7.81 12.34a122.1 122.1 0 0 1-5.12-9.1l4.94 2.92 2.62 7.85-2.44-1.67ZM32.66 9c-.66 1.15-1.33 2.26-2 3.33L28.23 14l2.61-7.85 4.94-2.92c-.95 1.89-2 3.81-3.12 5.77Z" />
+                </svg>
+                <div>Play!Pokémon</div>
+            </div>
+            <div class="flex items-center space-x-2 cursor-pointer pb-8 fill-header_icon_color hover:transition duration-200 hover:-translate-y-0.5 hover:fill-red_selection hover:text-red_selection">
+                <svg width="40" height="35">
+                    <path d="M39.45 6c.01-.16 0-.31-.05-.46 0-.16-.35-1-.8-.91-.28 0-.55.38-.62.85.33 11.64.37 20.21.2 22.31a3.76 3.76 0 0 1-1 2.45c-.5.42-1.13.68-1.78.74a2.46 2.46 0 0 1-2.55-2.42c-.1-1.1-.12-2.2-.08-3.29V4.01c0-3.13-.84-4-3.95-4L3.35 0C2 0 .69.31.25 1.84A7.55 7.55 0 0 0 0 3.91v20.6a51.4 51.4 0 0 0 .42 7.13c.3 2.1.87 2.44 3 2.51 1.7.07 3.4 0 5.1 0h24.87c3.6 0 6-2.25 6-5.64.21-13.05 0-21.51.06-22.51ZM3.32 5.43a.58.58 0 0 1 .57-.57H6.11c2.88-.06 5.76-.06 8.64 0H16.93a.58.58 0 0 1 .57.57v13a.57.57 0 0 1-.57.56H3.89a.57.57 0 0 1-.57-.56v-13Zm26 25.18a.57.57 0 0 1-.57.57H3.91a.57.57 0 0 1-.57-.57v-1.28a.58.58 0 0 1 .57-.57h24.84a.58.58 0 0 1 .57.57v1.28Zm0-3.38a.57.57 0 0 1-.57.56H3.91a.57.57 0 0 1-.57-.56v-1.29a.57.57 0 0 1 .57-.56h24.84a.57.57 0 0 1 .57.56v1.29Zm0-3.34a.58.58 0 0 1-.57.57H3.91a.58.58 0 0 1-.57-.57V22.6a.57.57 0 0 1 .57-.6h24.84a.57.57 0 0 1 .57.56v1.33Zm0-5.4a.58.58 0 0 1-.57.57h-7.56a.57.57 0 0 1-.56-.57v-2.78a.56.56 0 0 1 .56-.57h7.56a.57.57 0 0 1 .57.57v2.78Zm0-5.23a.58.58 0 0 1-.57.57h-7.56a.57.57 0 0 1-.56-.57v-2.78a.56.56 0 0 1 .56-.57h7.56a.57.57 0 0 1 .57.57v2.78Zm0-5a.58.58 0 0 1-.57.57h-7.56a.57.57 0 0 1-.56-.57V5.43a.57.57 0 0 1 .56-.57H28.79a.58.58 0 0 1 .57.57l-.04 2.83Z" />
+                    <path d="M34.72 27.78a.64.64 0 0 0 1.28 0V3.21a.64.64 0 1 0-1.28 0v24.57Z" />
+                </svg>
+                <div>News</div>
+            </div>
+        </nav>
+    </header>
+    <!-- ======================= MAIN LAYOUT ======================= -->
+    <div class="grid grid-cols-12 mt-10 gap-7">
+        <div class="col-span-8">
+            <!-- ==================== SEARCH BAR ==================== -->
+            <div class="rounded-xl p-5 bg-white shadow-lg">
+                <div class="flex justify-between">
+                    <div class="flex items-center space-x-2">
+                        <label>
+                            <input type="search"  name="query"  placeholder="Search your Pokémon!"  required="required"
+                                   class="bg-transparent border-none p-2 w-[50rem] text-red_selection focus-within:border-primary focus:outline-none" />
+                        </label>
+                    </div>
+                    <form method="GET" action="#">
+                        <button class="flex items-center space-x-2">
+                            <div class="bg-red_selection p-3 rounded-xl shadow-xl shadow-red_selection/60 hover:bg-red_selection/80">
+                                <img src="./assets/icons/buttons/poke_icon.svg" alt="filter-icon">
+                            </div>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <!-- ==================== FIRST FILTERS ==================== -->
+            <div class="flex justify-between items-center mt-10">
+                <div class="flex space-x-2 font-bold">
+                    <div class="text-title">Ascending</div>
+                    <img src="./assets/icons/buttons/arrow-down.svg" width="15" alt="arrow-down"/>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <div class="text-title font-bold">from</div>
+                    <input class="border border-secondary rounded-xl py-4 text-right px-4 w-[100px]"
+                           title="Input the minimum amount of pokémons"
+                           placeholder="Min"/>
+                    <div class="text-title font-bold">to</div>
+                    <input class="border border-secondary rounded-xl py-4 text-right px-4 w-[100px]"
+                           title="Input the maximum amount of pokémons"
+                           placeholder="Max"/>
+                </div>
+            </div>
+            <!-- ==================== SECOND FILTERS ==================== -->
+            <div class="grid grid-cols-12 gap-3 mt-10">
+                <div class="col-span-2">
+                    <form>
+                    <div class="relative">
+                        <!-- ============ Type Dropdown ============ -->
+                        <label>
+                            <img class="absolute top-4 left-3" src="./assets/icons/dropdowns/type_icon.svg" alt="Type Icon" />
+                            <select name="type" id="type" class="rounded-xl bg-white shadow-lg py-3 px-5 w-full">
+                                <option value="" disabled selected hidden>Type</option>
+                                <option value="type1">A type</option>
+                                <option value="type2">Another type</option>
+                            </select>
+                        </label>
+                    </div>
+                </div>
+
+                <div class=" col-span-3">
+                    <div class="relative">
+                        <!-- ============ Weaknesses Dropdown ============ -->
+                        <label>
+                            <img class="absolute top-4 left-3" src="./assets/icons/dropdowns/weaknesses_icon.svg" alt="Weaknesses Icon" />
+                            <select name="weakness" class="rounded-xl bg-white shadow-lg py-3 px-5 w-full">
+                                <option value="" disabled selected hidden>Weaknesses</option>
+                                <option value="weakness1">A weakness</option>
+                                <option value="weakness2">Another weakness</option>
+                            </select>
+                        </label>
+                    </div>
+                </div>
+
+                <div class=" col-span-2">
+                    <div class="relative">
+                        <!-- ============ Ability Dropdown ============ -->
+                        <label>
+                            <img class="absolute top-4 left-3" src="./assets/icons/dropdowns/ability_icon.svg" alt="Ability Icon" />
+                            <select class="rounded-xl bg-white shadow-lg py-3 px-5 w-full">
+                                <option value="" disabled selected hidden>Ability</option>
+                                <option value="Type 1">An ability</option>
+                                <option value="Type 2">Another ability</option>
+                            </select>
+                        </label>
+                    </div>
+                </div>
+
+                <div class=" col-span-2">
+                    <div class="relative">
+                        <!-- ============ Height Dropdown ============ -->
+                        <label>
+                            <img class="absolute top-4 left-3" src="./assets/icons/dropdowns/height_icon.svg" alt="Height Icon"/>
+                            <select class="rounded-xl bg-white shadow-lg py-3 px-5 w-full">
+                                <option value="" disabled selected hidden>Height</option>
+                                <option value="Type 1">Ascending</option>
+                                <option value="Type 2">Descending</option>
+                            </select>
+                        </label>
+                    </div>
+                </div>
+
+                <div class=" col-span-2">
+                    <div class="relative">
+                        <!-- ============ Weight Dropdown ============ -->
+                        <label>
+                            <img class="absolute top-4 left-3" src="./assets/icons/dropdowns/weight_icon.svg" alt="Weight Icon"/>
+                            <select class="rounded-xl bg-white shadow-lg py-3 px-5 w-full">
+                                <option value="" disabled selected hidden>Weight</option>
+                                <option value="Type 1">Ascending</option>
+                                <option value="Type 2">Descending</option>
+                            </select>
+                        </label>
+                    </div>
+                </div>
+                <!-- ============ Reset Fields Button ============ -->
+                <div class="col-span-1">
+                    <button type="reset" value="Reset" class="rounded-xl bg-white shadow-lg px-3 h-full items-center flex justify-center bg-secondary hover:bg-secondary/80 col-span-1">
+                        <img src="./assets/icons/buttons/arrow_icon.svg" width="30" alt="Arrow Icon"/>
+                    </button>
+                </div>
+                </form>
+            </div>
+            <!-- ==================== POKÉMON GRID CARDS ==================== -->
+            <div class="grid grid-cols-3 gap-x-7 gap-y-20 mt-24">
+                <div
+                        class="rounded-2xl bg-white shadow-xl relative p-7 text-center font-bold transition transform hover:-translate-y-1 cursor-pointer">
+                    <div class="absolute -top-14 left-0 flex justify-center w-full">
+                        <img src="./assets/images/387.png" alt="pokemon-image"/>
+                    </div>
+                    <div class="mt-6">
+                        Nº387
+                    </div>
+                    <div class="mt-3 text-lg text-title">
+                        Turtwig
+                    </div>
+                    <div class="mt-2 flex justify-center">
+                        <img src="./assets/icons/tags/Types=GRASS.svg" alt="type-icon"/>
+                    </div>
+                </div>
+
+                <div
+                        class="rounded-2xl bg-white shadow-xl relative p-7 text-center font-bold transition transform hover:-translate-y-1 cursor-pointer">
+                    <div class="absolute -top-14 left-0 flex justify-center w-full">
+                        <img src="./assets/images/388.png" alt="pokemon-image"/>
+                    </div>
+                    <div class="mt-6">
+                        Nº388
+                    </div>
+                    <div class="mt-3 text-lg text-title">
+                        Grottle
+                    </div>
+                    <div class="mt-2 flex justify-center">
+                        <img src="./assets/icons/tags/Types=GRASS.svg" alt="type-icon"/>
+                    </div>
+                </div>
+
+                <div
+                        class="rounded-2xl bg-white shadow-xl relative p-7 text-center font-bold transition transform hover:-translate-y-1 cursor-pointer">
+                    <div class="absolute -top-14 left-0 flex justify-center w-full">
+                        <img src="./assets/images/389.png" alt="pokemon-image"/>
+                    </div>
+                    <div class="mt-6">
+                        Nº389
+                    </div>
+                    <div class="mt-3 text-lg text-title">
+                        Torterra
+                    </div>
+                    <div class="mt-2 flex justify-center space-x-2">
+                        <img src="./assets/icons/tags/Types=GRASS.svg" alt="type-icon"/>
+                        <img src="./assets/icons/tags/Types=GROUND.svg" alt="type-icon"/>
+                    </div>
+                </div>
+
+                <div
+                        class="rounded-2xl bg-white shadow-xl relative p-7 text-center font-bold transition transform hover:-translate-y-1 cursor-pointer">
+                    <div class="absolute -top-14 left-0 flex justify-center w-full">
+                        <img src="./assets/images/390.png" alt="pokemon-image"/>
+                    </div>
+                    <div class="mt-6">
+                        Nº390
+                    </div>
+                    <div class="mt-3 text-lg text-title">
+                        Chimchar
+                    </div>
+                    <div class="mt-2 flex justify-center">
+                        <img src="./assets/icons/tags/Types=FIRE.svg" alt="type-icon"/>
+                    </div>
+                </div>
+
+                <div
+                        class="rounded-2xl bg-white shadow-xl relative p-7 text-center font-bold transition transform hover:-translate-y-1 cursor-pointer">
+                    <div class="absolute -top-14 left-0 flex justify-center w-full">
+                        <img src="./assets/images/391.png" alt="pokemon-image"/>
+                    </div>
+                    <div class="mt-6">
+                        Nº391
+                    </div>
+                    <div class="mt-3 text-lg text-title">
+                        Monferno
+                    </div>
+                    <div class="mt-2 flex justify-center space-x-2">
+                        <img src="./assets/icons/tags/Types=FIRE.svg" alt="type-icon"/>
+                        <img src="./assets/icons/tags/Types=FIGHTING.svg" alt="type-icon"/>
+                    </div>
+                </div>
+
+                <div
+                        class="rounded-2xl bg-white shadow-xl relative p-7 text-center font-bold transition transform hover:-translate-y-1 cursor-pointer">
+                    <div class="absolute -top-14 left-0 flex justify-center w-full">
+                        <img src="./assets/images/392.png" alt="pokemon-image"/>
+                    </div>
+                    <div class="mt-6">
+                        Nº392
+                    </div>
+                    <div class="mt-3 text-lg text-title">
+                        Infernape
+                    </div>
+                    <div class="mt-2 flex justify-center space-x-2">
+                        <img src="./assets/icons/tags/Types=FIRE.svg" alt="type-icon"/>
+                        <img src="./assets/icons/tags/Types=FIGHTING.svg" alt="type-icon"/>
+                    </div>
+                </div>
+
+                <div
+                        class="rounded-2xl bg-white shadow-xl relative p-7 text-center font-bold transition transform hover:-translate-y-1 cursor-pointer">
+                    <div class="absolute -top-14 left-0 flex justify-center w-full">
+                        <img src="./assets/images/393.png" alt="pokemon-image"/>
+                    </div>
+                    <div class="mt-6">
+                        Nº393
+                    </div>
+                    <div class="mt-3 text-lg text-title">
+                        Piplup
+                    </div>
+                    <div class="mt-2 flex justify-center">
+                        <img src="./assets/icons/tags/Types=WATER.svg" alt="type-icon"/>
+                    </div>
+                </div>
+
+                <div
+                        class="rounded-2xl bg-white shadow-xl relative p-7 text-center font-bold transition transform hover:-translate-y-1 cursor-pointer">
+                    <div class="absolute -top-14 left-0 flex justify-center w-full">
+                        <img src="./assets/images/394.png" alt="pokemon-image"/>
+                    </div>
+                    <div class="mt-6">
+                        Nº394
+                    </div>
+                    <div class="mt-3 text-lg text-title">
+                        Prinplup
+                    </div>
+                    <div class="mt-2 flex justify-center">
+                        <img src="./assets/icons/tags/Types=WATER.svg" alt="type-icon"/>
+                    </div>
+                </div>
+
+                <div
+                        class="rounded-2xl bg-white shadow-xl relative p-7 text-center font-bold transition transform hover:-translate-y-1 cursor-pointer">
+                    <div class="absolute -top-14 left-0 flex justify-center w-full">
+                        <img src="./assets/images/395-Sprite.png" alt="pokemon-image"/>
+                    </div>
+                    <div class="mt-6">
+                        Nº395
+                    </div>
+                    <div class="mt-3 text-lg text-title">
+                        Empoleon
+                    </div>
+                    <div class="mt-2 flex justify-center space-x-2">
+                        <img src="./assets/icons/tags/Types=WATER.svg" alt="type-icon"/>
+                        <img src="./assets/icons/tags/Types=STEEL.svg" alt="type-icon"/>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+        <div class="col-span-4">
+            <div class="rounded-xl bg-white shadow-xl relative mt-28 pt-10 pb-3 text-center">
+                <div class="px-10">
+                    <div class="absolute -top-28 left-0 flex justify-center w-full">
+                        <img src="./assets/images/395-Portrait.png" width="250" alt="pokemon-image"/>
+                    </div>
+                    <div class="flex justify-end">
+                        <div class="space-y-2">
+                            <div class="rounded-lg bg-[#85DDFF] p-2">
+                                <img src="./assets/icons/pokemon_info/male_icon.svg" alt="icon"/>
+                            </div>
+                            <div class="rounded-lg border-[#C13145] border p-2 flex justify-center">
+                                <img src="./assets/icons/pokemon_info/female_icon.svg" alt="icon"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="space-y-5 mt-7 font-semibold">
+                        <div class="font-bold">
+                            #395
+                        </div>
+                        <div class="space-y-2">
+                            <div class="text-title text-xl font-bold">
+                                Empoleon
+                            </div>
+                            <small>Emperor Pokémon</small>
+                            <div class="flex space-x-2 justify-center">
+                                <img src="./assets/icons/tags/Types=WATER.svg" alt="type-icon"/>
+                                <img src="./assets/icons/tags/Types=STEEL.svg" alt="type-icon"/>
+                            </div>
+                        </div>
+                        <div class="space-y-2">
+                            <div class="text-title font-bold">
+                                POKÉDEX ENTRY
+                            </div>
+                            <P class="text-title/80">
+                                It swims as fast as a jet boat. The edges of its wings are sharp and can slice apart
+                                drifting ice.
+                            </P>
+                        </div>
+                        <div class="grid grid-cols-2 gap-5">
+                            <div class="col-span-2">
+                                <div class="text-title font-bold">ABILITIES</div>
+                                <div class="flex mt-2 space-x-2">
+                                    <div
+                                            class="rounded-full text-title border-title border py-2 px-7 w-full text-left bg-secondary10">
+                                        Torrent
+                                    </div>
+                                    <div
+                                            class="rounded-full text-title border-red_selection border py-2 px-7 w-full text-left bg-secondary/10 flex justify-between">
+                                        <div>
+                                            Default
+                                        </div>
+                                        <img src="./assets/icons/pokemon_info/hidden_icon.svg" width="20"
+                                             alt="icon"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-span-1">
+                                <div class="text-title font-bold">HEIGHT</div>
+                                <div
+                                        class="rounded-full text-title py-2 px-7 w-full text-center bg-secondary/10 mt-2">
+                                    1.7m
+                                </div>
+                            </div>
+                            <div class="col-span-1">
+                                <div class="text-title font-bold">WEIGHT</div>
+                                <div
+                                        class="rounded-full text-title py-2 px-7 w-full text-center bg-secondary/10 mt-2">
+                                    84.5kg
+                                </div>
+                            </div>
+                            <div class="col-span-1">
+                                <div class="text-title font-bold">WEAKNESSES</div>
+                                <div
+                                        class="rounded-full text-title py-2 px-7 w-full text-center bg-secondary/10 mt-2">
+                                    2.5
+                                </div>
+                            </div>
+                            <div class="col-span-1">
+                                <div class="text-title font-bold">BASE EXP</div>
+                                <div
+                                        class="rounded-full text-title py-2 px-7 w-full text-center bg-secondary/10 mt-2">
+                                    239
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="text-title font-bold">STATS</div>
+                            <div class="mt-2">
+                                <div class="grid grid-cols-6 gap-3">
+                                    <div class="rounded-full bg-secondary/10 p-2">
+                                        <div class="rounded-full bg-red_selection px-2 py-2 text-white text-xs">
+                                            HP
+                                        </div>
+                                        <div class="mt-2">
+                                            84
+                                        </div>
+                                    </div>
+                                    <div class="rounded-full bg-secondary/10 p-2">
+                                        <div class="rounded-full bg-orange-400 px-2 py-2 text-white text-xs">
+                                            ATK
+                                        </div>
+                                        <div class="mt-2">
+                                            86
+                                        </div>
+                                    </div>
+                                    <div class="rounded-full bg-secondary/10 p-2">
+                                        <div class="rounded-full bg-yellow-400 px-2 py-2 text-white text-xs">
+                                            DEF
+                                        </div>
+                                        <div class="mt-2">
+                                            88
+                                        </div>
+
+                                    </div>
+                                    <div class="rounded-full bg-secondary/10 p-2">
+                                        <div class="rounded-full bg-blue-400 px-2 py-2 text-white text-xs">
+                                            SpA
+                                        </div>
+                                        <div class="mt-2">
+                                            111
+                                        </div>
+                                    </div>
+                                    <div class="rounded-full bg-secondary/10 p-2">
+                                        <div class="rounded-full bg-green-400 px-2 py-2 text-white text-xs">
+                                            SpD
+                                        </div>
+                                        <div class="mt-2">
+                                            101
+                                        </div>
+                                    </div>
+                                    <div class="rounded-full bg-secondary/10 p-2">
+                                        <div class="rounded-full bg-pink-400 px-2 py-2 text-white text-xs">
+                                            SpD
+                                        </div>
+                                        <div class="mt-2">
+                                            60
+                                        </div>
+                                    </div>
+                                    <div class="rounded-full bg-secondary/10 p-2">
+                                        <div class="rounded-full bg-indigo-400 px-2 py-2 text-white text-xs">
+                                            TOT
+                                        </div>
+                                        <div class="mt-2">
+                                            530
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="text-title font-bold">EVOLUTION</div>
+                            <div class="grid grid-cols-5">
+                                <img src="./assets/images/393.png" width="120" alt="icon"/>
+                                <div class="flex items-center">
+                                    <div
+                                            class="rounded-full bg-secondary/10 h-10 w-full flex items-center justify-center">
+                                        Lvl 16
+                                    </div>
+                                </div>
+                                <img src="./assets/images/395-Sprite.png" width="120" alt="icon"/>
+                                <div class="flex items-center">
+                                    <div
+                                            class="rounded-full bg-secondary/10 h-10 w-full flex items-center justify-center">
+                                        Lvl 36
+                                    </div>
+                                </div>
+                                <img src="./assets/images/395-Portrait.png" width="120" alt="icon"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="rounded-2xl bg-secondary/20 py-7 px-4 mt-5 mx-3 flex justify-between">
+                    <div class="flex space-x-1 items-center">
+                        <img src="./assets/icons/buttons/arrow-left.svg" width="20" alt="icon"/>
+                        <img src="./assets/images/394.png" width="50" alt="icon"/>
+                        <div class="text-title font-bold">Prinplup</div>
+                        <div class="text-secondary">#394</div>
+                    </div>
+                    <div class="flex space-x-1 items-center">
+                        <img src="./assets/images/394.png" width="50" alt="icon"/>
+                        <div class="text-title font-bold">Prinplup</div>
+                        <div class="text-secondary">#394</div>
+                        <img src="./assets/icons/buttons/arrow-right.svg" width="20" alt="icon"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    header_icon_color: '#777777',
+                    red_selection: '#FF5451',
+                    secondary: '#8F9396',
+                    title: '#000E48',
+                    background_color: '#F6F8Fc'
+                }
+            }
+        }
+    }
+</script>
+
 </body>
 
 </html>

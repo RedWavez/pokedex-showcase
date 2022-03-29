@@ -1,11 +1,15 @@
-# Pokémon Showcase
+# Pokédex Showcase
 
 <div align="center">
     <img src="graphics/logo.png" width="130" alt="Pokedex" />
 </div>
 
+Welcome to my Pokédex! Ready to look for your favourite pokémon?
+
+### Objective
+
 The purpose of this project was to increase my knowledge in
-various technologies, mainly Python.
+various technologies, mainly in Python.
 
 ---
 
@@ -19,15 +23,19 @@ Lorem Ipsum
 ---
 
 ### Usage
-Lorem Ipsum
+You need to use docker and to connect to a database.
 
 ---
-### Software used
+### Technologies used
 - **Management**
   - Virtualization: Docker
 - **Frontend**
-  - Languages: HTML, Javascript
-  - Framework: Flask
+  - Languages: HTML, Javascript, CSS
+  - Frameworks: Flask, Tailwindcss
+  - Software: Webstorm
 - **Backend**
-  - Language: SQL
-  - Software: DBeaver
+  - Languages: SQL, Python
+  - Softwares: DBeaver, Pycharm
+- **Others**
+  - [SVGOMG](https://jakearchibald.github.io/svgomg/) - For SVG compression in index.html
+  - [Tailwindcomponents](https://tailwindcomponents.com/) - Took some inspirations from here

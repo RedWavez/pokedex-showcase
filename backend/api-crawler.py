@@ -1,15 +1,19 @@
 import requests
 import json
+import shutil
 from pathlib import Path, PurePath
-#from mysql-connect import loadfiles
-
-# TODO Fazer com que começe no 501
-# TODO Adicionar answer code para rate limit 404
-# TODO Adicionar um check para ver se o folder existe
-# TODO Adicionar variável dinâmica no folder onde vão ser guardados os jsons
+# from mysql-connect import loadfiles
 
 # Path to backend directory
 working_dir = Path.cwd()
+
+pokedex_api_url = 'https://pokeapi.glitch.me/v1/pokemon/'
+pokedex_api_folder = Path(f'{working_dir}/pokedex_api')
+pokedex_api_image_folder = Path(f'{working_dir}/images/portraits')
+
+pokeapi_url = 'https://pokeapi.co/api/v2/pokemon/'
+pokeapi_folder = Path(f'{working_dir}/pokeapi')
+pokeapi_image_folder = Path(f'{working_dir}/images/sprites')
 
 # Dictionary with all the menu options
 menu_options = {1: 'Scrape APIs',
@@ -30,6 +34,7 @@ def print_menu():
 def check_folders(folders):
     """
     Create and check if folders and subfolders exist based on the choosen option
+    :param folders: List of folders to be created
     """
     try:
         # If option 1 then creates 2 folders by looping keys from a list
@@ -56,10 +61,10 @@ def scrape_apis(folders, url_choice):
 
     if url_choice == 'a':
         folder = 'pokeapi2'
-        url = 'https://pokeapi.co/api/v2/pokemon/'
+        url = pokeapi_url
     elif url_choice == 'b':
         folder = 'pokedex_api2'
-        url = 'https://pokeapi.glitch.me/v1/pokemon/'
+        url = pokedex_api_url
     else:
         print("[ERROR] You must either type 'a' or 'b'.")
         return
@@ -89,17 +94,11 @@ def download_images(folders, url_choice):
     """
     check_folders(folders)
 
-    hd_images_path = Path(f'{working_dir}/images/portraits')
-    sprite_images_path = Path(f'{working_dir}/images/sprites')
-
-    pokeapi_path = Path(f'{working_dir}/pokeapi')
-    pokedex_api_path = Path(f'{working_dir}/pokedex_api')
-
     target_directory = PurePath.joinpath(working_dir, "images")
 
     max_files = 730
     for num in range(715, max_files + 1):
-        path = PurePath.joinpath(pokedex_api_path, str(num) + ".json")
+        path = PurePath.joinpath(pokedex_api_folder, str(num) + ".json")
         with open(path, "r") as json_file:
             pokedex_api_obj = json.load(json_file)
         img_url = pokedex_api_obj[0]['sprite']
@@ -115,19 +114,6 @@ def download_images(folders, url_choice):
                     break
 
                 handle.write(block)
-
-
-    # path = os.path.join(filepath, str(num) + ".json")
-    # with open(path, "r") as json_file:
-    #     json_data = json.load(json_file)
-    #
-    # for index, js in enumerate(json_files):
-    #     with open(os.path.join(path_to_json, js)) as json_file:
-    #         json_text = json.load(json_file)
-    #
-    # max_files = 10
-    # for num in range(1, max_files + 1):
-    #     info_parsing(("pokeapi", "pokedex_api"), num, db, cursor)
 
 
 if __name__ == '__main__':
