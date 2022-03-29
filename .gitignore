@@ -1,4 +1,8 @@
 .env
 .idea
-backend/pokelist/*
+backend/pokeapi/*
+backend/backup/*
+backend/pokedex_api/*
 database/*
+backend/tests.py
+frontend/OLD*
